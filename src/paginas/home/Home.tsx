@@ -1,5 +1,6 @@
 import React from 'react';
 import {Typography, Box, Grid, Button} from '@material-ui/core';
+import TabPostagem from '../../components/postagens/tabpostagem/TabPostagem';
 import './Home.css';
 
 function Home() {
@@ -21,6 +22,7 @@ function Home() {
                     <img src="https://www.travelsunbooking.com/wp-content/uploads/2021/04/Hagrids-Hut-Filming-Location-Glen-Coe_by_Laurence-Norah.jpg" alt="" width="760px" height="560px" />
                 </Grid>
                 <Grid xs={12} className='postagens'>
+                    <TabPostagem />
                 </Grid>
             </Grid>
         </>

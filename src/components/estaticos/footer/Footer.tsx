@@ -2,6 +2,7 @@ import React from 'react';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import FacebookIcon from '@material-ui/icons/Facebook';
 import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import GitHubIcon from '@mui/icons-material/GitHub';
 import {Typography, Box, Grid } from '@material-ui/core';
 import './Footer.css';
 
@@ -23,6 +24,9 @@ function Footer() {
                             </a>
                             <a href="https://www.linkedin.com/school/generationbrasil/" target="_blank">
                                 <LinkedInIcon className='redes' />
+                            </a>
+                            <a href="https://github.com/marciors92" target="_blank">
+                                <GitHubIcon className='redes' />
                             </a>
                         </Box>
                     </Box>
