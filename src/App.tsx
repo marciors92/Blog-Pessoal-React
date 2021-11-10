@@ -6,8 +6,12 @@ import CadastroUsuario from './paginas/cadastroUsuario/CadastroUsuario';
 import Home from './paginas/home/Home';
 import './App.css';
 import Login from './paginas/login/login';
-import ListaTema from './components/temas/listatema/listaTema';
-import ListaPostagem from './components/postagens/listapostagem/listaPostagem';
+import ListaTema from './components/temas/listatema/ListaTema';
+import ListaPostagem from './components/postagens/listapostagem/ListaPostagem';
+import CadastroPost from './components/postagens/cadastroPost/CadastroPost';
+import CadastroTema from './components/temas/cadastroTema/CadastroTema';
+import DeletarPostagem from './components/postagens/deletarPostagem/DeletarPostagem';
+import DeletarTema from './components/temas/deletarTema/DeletarTema';
 
 
 function App() {
@@ -39,9 +43,28 @@ function App() {
           <Route path='/posts'>
             <ListaPostagem />
           </Route>
+
+          <Route exact path='/formularioPostagem'>
+            <CadastroPost />
+          </Route>
+          <Route exact path='/formularioPostagem'>
+            <CadastroPost />
+          </Route>
+          <Route exact path='/formularioTema'>
+            <CadastroTema />
+          </Route>
+          <Route exact path='/formularioTema'>
+            <CadastroTema />
+          </Route>
+          <Route exact path='/deletarPostagem'>
+            <DeletarPostagem />
+          </Route>
+          <Route exact path='/deletarTema'>
+            <DeletarTema />
+          </Route>
+
         </div>
       </Switch>
-
       <Footer />
     </Router>
   );
