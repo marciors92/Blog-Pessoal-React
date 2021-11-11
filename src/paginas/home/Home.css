@@ -1,4 +1,4 @@
-.caixa{
+.caixa {
     background-color: #3F51B5;
 }
 
@@ -7,7 +7,7 @@
     font-weight: bold !important;
 }
 
-.botao{
+.botao {
     border-color: white !important;
     background-color: #3F51B5;
     color: white !important;
@@ -15,4 +15,8 @@
 
 .postagens {
     background-color: white;
+}
+
+.text-decorator-none {
+    text-decoration: none;
 }

@@ -1,20 +1,33 @@
 import React, { useEffect, useState } from 'react'
 import {Typography, Button, Box, Card, CardActions, CardContent } from "@material-ui/core"
 import './DeletarPostagem.css';
+import { useHistory, useParams } from 'react-router-dom';
 import Postagem from '../../../models/Postagem';
 import { buscaId, deleteId } from '../../../services/Service';
-import { useHistory, useParams } from 'react-router-dom';
-import useLocalStorage from 'react-use-localstorage';
+import { useSelector } from 'react-redux';
+import { TokenState } from '../../../store/tokens/tokensReducer';
+import { toast } from 'react-toastify';
 
 function DeletarPostagem() {
     let history = useHistory();
     const { id } = useParams<{id: string}>();
-    const [token, setToken] = useLocalStorage('token');
-    const [post, setTema] = useState<Postagem>()
+    const token = useSelector<TokenState, TokenState["tokens"]>(
+      (state) => state.tokens
+    );
+    const [post, setPosts] = useState<Postagem>()
 
     useEffect(() => {
         if (token == "") {
-            alert("Você precisa estar logado")
+          toast.error('Você precisa estar logado', {
+            position: "top-right",
+            autoClose: 2000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: false,
+            theme: "colored",
+            progress: undefined,
+        });
             history.push("/login")
     
         }
@@ -37,17 +50,25 @@ function DeletarPostagem() {
         function sim() {
             history.push('/posts')
             deleteId(`/postagens/${id}`, {
-                headers: {
-                    'Authorization': token
-                }
+              headers: {
+                'Authorization': token
+              }
             });
-            alert('Postagem deletada com sucesso');
-        }
-
-        function nao() {
+            toast.success('Postagem deletada com sucesso', {
+              position: "top-right",
+              autoClose: 2000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: false,
+              draggable: false,
+              theme: "colored",
+              progress: undefined,
+          });
+          }
+        
+          function nao() {
             history.push('/posts')
-        }
-   
+          }
   return (
     <>
       <Box m={2}>
@@ -71,7 +92,7 @@ function DeletarPostagem() {
               </Button>
               </Box>
               <Box>
-              <Button onClick={nao} variant="contained" size='large' color="secondary">
+              <Button  onClick={nao} variant="contained" size='large' color="secondary">
                 Não
               </Button>
               </Box>
@@ -83,7 +104,3 @@ function DeletarPostagem() {
   );
 }
 export default DeletarPostagem;
-
-function setPosts(arg0: string, setPosts: any, arg2: { headers: { Authorization: string; }; }) {
-    throw new Error('Function not implemented.');
-}
